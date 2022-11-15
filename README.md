@@ -1,22 +1,22 @@
-# Mohirdev-Mukammal-Telegram-Bot
-Mukammal Telegram bot kursi (http://mohirdev.uz/courses/telegram/) O'zbek tilidagi eng to'liq kurs. 
+# Mohirdev-Mukammal-Telegram-Bot<br>
+Mukammal Telegram bot kursi (http://mohirdev.uz/courses/telegram/) O'zbek tilidagi eng to'liq kurs.<br> 
 
-Kursning pullik qismida qamrab olingan mavzular:
+Kursning pullik qismida qamrab olingan mavzular:<br>
 
-✅ Telegram API bilan tanishuv
-✅ Python aiogram frameworki bilan tanishuv
-✅ Dastur yaratish qadamlari
-✅ Bot uchun qiziqarli API-lar
-✅ Bot uchun shablon
-✅ Handlerlar va Filtrlar
-✅ Holatlar va Tugmalar
-✅ Guruh va Kanalda ishlash
-✅ Hujjatlar, rasmlar va media bilan ishlash
-✅ Inline rejim
-✅ Bot orqali to'lov qabul qilish
-✅ Ma'lumotlar ombori (Sqlite, PostgreSQL)
-✅ Botni Serverga yuklash (Heroku, Amazon)
-✅ Elektron Bozor yaratish
-✅ Bot uchun Web Admin panel
+✅ Telegram API bilan tanishuv<br>
+✅ Python aiogram frameworki bilan tanishuv<br>
+✅ Dastur yaratish qadamlari<br>
+✅ Bot uchun qiziqarli API-lar<br>
+✅ Bot uchun shablon<br>
+✅ Handlerlar va Filtrlar<br>
+✅ Holatlar va Tugmalar<br>
+✅ Guruh va Kanalda ishlash<br>
+✅ Hujjatlar, rasmlar va media bilan ishlash<br>
+✅ Inline rejim<br>
+✅ Bot orqali to'lov qabul qilish<br>
+✅ Ma'lumotlar ombori (Sqlite, PostgreSQL)<br>
+✅ Botni Serverga yuklash (Heroku, Amazon)<br>
+✅ Elektron Bozor yaratish<br>
+✅ Bot uchun Web Admin panel<br>
 
-Qisqa qilib aytganda, mukammal bot yaratish uchun barcha mavzular qamrab olingan.
+Qisqa qilib aytganda, mukammal bot yaratish uchun barcha mavzular qamrab olingan.<br>
