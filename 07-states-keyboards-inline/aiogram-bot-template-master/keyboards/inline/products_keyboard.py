@@ -54,16 +54,15 @@ for key, value in books.items():
     books_menu.insert(InlineKeyboardButton(text=key, callback_data=book_callback.new(item_name=value)))
 books_menu.insert(back_button)
 
-
 # Har bir kurs uchun tugma
-telegram_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        InlineKeyboardButton(text='Xarid qilish', url='https://mohirdev.uz/courses/telegram/'),
-    ],
-)
+telegram_keyboard = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text="Xarid qilish", url="https://mohirdev.uz/courses/telegram/")
+    ]
+])
 
-algorithm_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        InlineKeyboardButton(text='Ko\'rish', url='https://mohirdev.uz/courses/algoritmlar/'),
-    ],
-)
+algorithm_keyboard = InlineKeyboardMarkup(inline_keyboard=[
+    [
+        InlineKeyboardButton(text="Ko'rish", url="https://mohirdev.uz/courses/algoritmlar/")
+    ]
+])
