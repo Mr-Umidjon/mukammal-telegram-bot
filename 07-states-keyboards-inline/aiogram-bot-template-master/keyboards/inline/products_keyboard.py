@@ -31,7 +31,7 @@ courses_menu.insert(python)
 django = InlineKeyboardButton(text='🌐 Django Web Dasturlash', callback_data=course_callback.new(item_name='django'))
 courses_menu.insert(django)
 
-telegram = InlineKeyboardButton(text='🤖 Mukammal Telegram bot', callback_data='course:telegram')
+telegram = InlineKeyboardButton(text='🤖 Mukammal Telegram bot', callback_data="course:telegram")
 courses_menu.insert(telegram)
 
 algorithm = InlineKeyboardButton(text='📈 Ma\'lumotlar Tuzilmasi va Algoritmlar', callback_data='course:algorithm')
@@ -53,3 +53,17 @@ books_menu = InlineKeyboardMarkup(row_width=1)
 for key, value in books.items():
     books_menu.insert(InlineKeyboardButton(text=key, callback_data=book_callback.new(item_name=value)))
 books_menu.insert(back_button)
+
+
+# Har bir kurs uchun tugma
+telegram_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        InlineKeyboardButton(text='Xarid qilish', url='https://mohirdev.uz/courses/telegram/'),
+    ],
+)
+
+algorithm_keyboard = InlineKeyboardMarkup(
+    inline_keyboard=[
+        InlineKeyboardButton(text='Ko\'rish', url='https://mohirdev.uz/courses/algoritmlar/'),
+    ],
+)

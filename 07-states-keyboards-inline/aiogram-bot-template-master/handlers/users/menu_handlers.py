@@ -2,7 +2,8 @@ import logging
 
 from aiogram.types import Message, CallbackQuery
 
-from keyboards.inline.products_keyboard import category_menu, courses_menu, books_menu
+from keyboards.inline.products_keyboard import category_menu, courses_menu, books_menu, telegram_keyboard
+from keyboards.inline.callback_data import course_callback
 
 from loader import dp
 
@@ -26,4 +27,13 @@ async def buy_courses(call: CallbackQuery):
 async def buy_books(call: CallbackQuery):
     await call.message.answer('Kitoblar', reply_markup=books_menu)
     await call.message.delete()
+    await call.answer(cache_time=60)
+
+
+@dp.callback_query_handler(course_callback.filter(item_name="telegram"))
+async def buying_course(call: CallbackQuery, callback_data: dict):
+    logging.info(f"{callback_data=}")
+
+    await call.message.answer(f"Siz Mukammal Telegram Bot Kursini tanladingiz.",
+                              reply_markup=telegram_keyboard)
     await call.answer(cache_time=60)
