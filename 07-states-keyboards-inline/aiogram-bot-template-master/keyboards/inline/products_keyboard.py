@@ -24,5 +24,27 @@ category_menu = InlineKeyboardMarkup(
 
 courses_menu = InlineKeyboardMarkup(row_width=1)
 
-python = InlineKeyboardButton(text='🐍 Python Dasturlash Asoslari', callback_data=course_callback.new(item_name="python"))
+python = InlineKeyboardButton(text='🐍 Python Dasturlash Asoslari',
+                              callback_data=course_callback.new(item_name="python"))
 courses_menu.insert(python)
+
+django = InlineKeyboardButton(text='🌐 Django Web Dasturlash', callback_data=course_callback.new(item_name='django'))
+courses_menu.insert(django)
+
+telegram = InlineKeyboardButton(text='🤖 Mukammal Telegram bot', callback_data='course:telegram')
+courses_menu.insert(telegram)
+
+algorithm = InlineKeyboardButton(text='📈 Ma\'lumotlar Tuzilmasi va Algoritmlar', callback_data='course:algorithm')
+courses_menu.insert(algorithm)
+
+back_button = InlineKeyboardButton(text='🔙 Ortga', callback_data='cancel')
+courses_menu.insert(back_button)
+
+
+# 3 - usul
+
+books = {
+    "Python. Dasturlash asoslari": "python_book",
+    "C++. Dasturlash tili": "cpp_book",
+    "Mukammal Dasturlash. JavaScript": "js_book",
+}
