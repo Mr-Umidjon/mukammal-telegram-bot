@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-from keyboards.inline.callback_data import course_callback
+from keyboards.inline.callback_data import course_callback, book_callback
 
 category_menu = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -40,7 +40,6 @@ courses_menu.insert(algorithm)
 back_button = InlineKeyboardButton(text='🔙 Ortga', callback_data='cancel')
 courses_menu.insert(back_button)
 
-
 # 3 - usul
 
 books = {
@@ -48,3 +47,9 @@ books = {
     "C++. Dasturlash tili": "cpp_book",
     "Mukammal Dasturlash. JavaScript": "js_book",
 }
+
+books_menu = InlineKeyboardMarkup(row_width=1)
+
+for key, value in books.items():
+    books_menu.insert(InlineKeyboardButton(text=key, callback_data=book_callback.new(item_name=value)))
+books_menu.insert(back_button)
