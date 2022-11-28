@@ -69,3 +69,34 @@ async def undo_read_only_mode(message: types.Message):
     await asyncio.sleep(5)
     await message.delete()
     await service_message.delete()
+
+
+@dp.message_handler(IsGroup(), Command('ban', prefixes='!/'), AdminFilter())
+async def ban_user(message: types.Message):
+    member = message.reply_to_message.from_user
+    member_id = member.id
+    chat_id = message.chat.id
+    await message.chat.kick(user_id=member_id)
+
+    await message.answer(f"Foydalanuvchi {message.reply_to_message.from_user.full_name} guruhdan haydaldi\n")
+
+    service_message = await message.reply('Xabar 5 sekundan so\'ng o\'chib ketadi')
+
+    await asyncio.sleep(5)
+    await message.delete()
+    await service_message.delete()
+
+
+@dp.message_handler(IsGroup(), Command('unban', prefixes='!/'), AdminFilter())
+async def unban_user(message: types.Message):
+    member = message.reply_to_message.from_user
+    member_id = member.id
+    chat_id = message.chat.id
+    await message.chat.unban(user_id=member_id)
+    await message.answer(f"Foydalanuvchi {message.reply_to_message.from_user.full_name} bandan chiqarildi")
+
+    service_message = await message.reply('Xabar 5 sekunddan song ochib ketadi.')
+
+    await asyncio.sleep(5)
+    await message.delete()
+    await service_message.delete()
