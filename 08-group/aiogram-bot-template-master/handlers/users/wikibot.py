@@ -1,4 +1,5 @@
 from aiogram import types
+from filters import IsPrivate
 
 from loader import dp
 
@@ -6,8 +7,9 @@ import wikipedia
 
 wikipedia.set_lang('uz')
 
+
 # Echo bot
-@dp.message_handler(state=None)
+@dp.message_handler(IsPrivate(), state=None)
 async def bot_echo(message: types.Message):
     try:
         response = wikipedia.summary(message.text)
