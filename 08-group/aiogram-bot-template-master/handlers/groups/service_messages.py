@@ -14,7 +14,7 @@ async def new_member(message: types.Message):
 async def banned_member(message: types.Message):
     if message.left_chat_member.id == message.from_user.id:
         await message.answer(f"{message.left_chat_member.get_mention(as_html=True)} guruhni tark etdi")
-    elif message.from_user.id == (await bot.me):
+    elif message.from_user.id == (await bot.me).id:
         return
     else:
         await message.answer(f"{message.left_chat_member.full_name} guruhdan haydaldi"
