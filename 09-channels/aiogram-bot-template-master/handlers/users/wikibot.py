@@ -9,7 +9,8 @@ wikipedia.set_lang('uz')
 
 # Echo bot
 @dp.message_handler(state=None)
-async def bot_echo(message: types.Message):
+async def send_wiki(message: types.Message):
+    print(message.chat.id)
     try:
         response = wikipedia.summary(message.text)
         if len(response) > 4095:
