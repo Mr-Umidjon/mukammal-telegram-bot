@@ -47,7 +47,7 @@ async def post_unknown(message: Message):
 
 
 @dp.callback_query_handler(post_callback.filter(action="post"), user_id=ADMINS)
-async def approve_post(call: CallbackQuery):
+async def approve_post(call: CallbackQuery, data: dict):
     await call.answer("Chop etishga ruhsat berdingiz.", show_alert=False)
     target_channel = CHANNELS[0]
     message = await call.message.edit_reply_markup()
@@ -55,6 +55,6 @@ async def approve_post(call: CallbackQuery):
 
 
 @dp.callback_query_handler(post_callback.filter(action="cancel"), user_id=ADMINS)
-async def decline_post(call: CallbackQuery):
+async def decline_post(call: CallbackQuery, data: dict):
     await call.answer("Post rad etildi.", show_alert=False)
     await call.message.edit_reply_markup()
