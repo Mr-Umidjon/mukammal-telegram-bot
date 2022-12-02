@@ -22,7 +22,7 @@ async def enter_message(message: Message, state: FSMContext):
     await NewPost.next()
 
 
-@dp.callback_query_handler(post_callback.filter(action='post'),state=NewPost.Confirm)
+@dp.callback_query_handler(post_callback.filter(action='post'), state=NewPost.Confirm)
 async def confirm_post(call: CallbackQuery, state: FSMContext):
     async with state.proxy() as data:
         text = data.get('text')
@@ -46,3 +46,15 @@ async def post_unknown(message: Message):
     await message.answer("Chop etish yoki rad etishni tanlang")
 
 
+@dp.callback_query_handler(post_callback.filter(action="post"), user_id=ADMINS)
+async def approve_post(call: CallbackQuery):
+    await call.answer("Chop etishga ruhsat berdingiz.", show_alert=False)
+    target_channel = CHANNELS[0]
+    message = await call.message.edit_reply_markup()
+    await message.send_copy(chat_id=target_channel)
+
+
+@dp.callback_query_handler(post_callback.filter(action="cancel"), user_id=ADMINS)
+async def decline_post(call: CallbackQuery):
+    await call.answer("Post rad etildi.", show_alert=False)
+    await call.message.edit_reply_markup()
