@@ -1,7 +1,7 @@
 from io import BytesIO
 import aiohttp
 from aiogram import types
-from ..loader import bot
+from loader import bot
 
 
 async def photo_link(photo: types.photo_size.PhotoSize):
