@@ -1,9 +1,9 @@
 import math
 from aiogram import types
 
-from ...utils.misc import show_on_gmaps
+from utils.misc import show_on_gmaps
 
-from ...data.locations import Shops
+from data.locations import Shops
 
 
 def calc_disctance(lat1, lon1, lat2, lon2):
