@@ -1,7 +1,7 @@
 import math
 from aiogram import types
 
-from ..utils.misc import sh
+from ...utils.misc import show_on_gmaps
 
 from ...data.locations import Shops
 
@@ -19,3 +19,15 @@ def calc_disctance(lat1, lon1, lat2, lon2):
 
     meters = R * c
     return meters / 1000.0
+
+
+def choose_shortest(location: types.Location):
+    distances = list()
+    for shop_name, shop_location in Shops:
+        distances.append((shop_name,
+                          calc_disctance(location.latitude, location.longitude,
+                                         shop_location['la1'], shop_location['lon']),
+                          show_on_gmaps.show(**shop_location),
+                          shop_location
+                          ))
+    return sorted(distances, key=lambda x: x[1])[:2]
