@@ -21,3 +21,18 @@ async def send_book(message: types.Message):
     # photo_file = InputFile(path_or_bytesio="photo_path")
     await message.reply_photo(photo_id, caption="this isn't book")
     await bot.send_photo(chat_id=message.from_user.id, photo=photo_id, caption="this isn't book")
+
+
+@dp.message_handler(Command('courses'))
+async def send_courses(message: types.Message):
+    album = types.MediaGroup()
+    photo1 = "AgACAgIAAxkBAAIECWOKMxdOxLjCKF2aQVUhJ37AdigNAAJVxDEbL_ZRSFtJE1RTDiI5AQADAgADeQADKwQ"
+    photo2 = "AgACAgIAAxkBAAIECWOKMxdOxLjCKF2aQVUhJ37AdigNAAJVxDEbL_ZRSFtJE1RTDiI5AQADAgADeQADKwQ"
+    photo3 = "AgACAgIAAxkBAAIECWOKMxdOxLjCKF2aQVUhJ37AdigNAAJVxDEbL_ZRSFtJE1RTDiI5AQADAgADeQADKwQ"
+    photo4 = "AgACAgIAAxkBAAIECWOKMxdOxLjCKF2aQVUhJ37AdigNAAJVxDEbL_ZRSFtJE1RTDiI5AQADAgADeQADKwQ"
+    album.attach_photo(photo4)
+    album.attach_photo(photo3)
+    album.attach_photo(photo2)
+    album.attach_photo(photo1, caption='This is photo')
+
+    await message.answer_media_group(media=album)
