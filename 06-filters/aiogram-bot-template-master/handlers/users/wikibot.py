@@ -6,6 +6,7 @@ import wikipedia
 
 wikipedia.set_lang('uz')
 
+
 # Echo bot
 @dp.message_handler(state=None)
 async def bot_echo(message: types.Message):
