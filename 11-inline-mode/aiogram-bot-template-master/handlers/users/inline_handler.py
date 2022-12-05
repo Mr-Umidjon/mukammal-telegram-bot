@@ -1,5 +1,38 @@
 from aiogram import types
 from loader import dp
+from keyboards.inline.courses import aiogram_keys, python_keys
+
+
+@dp.inline_handler(text='kurs')
+async def photo_query(query: types.InlineQuery):
+    await query.answer(
+        results=[
+            types.InlineQueryResultPhoto(
+                id='ph001',
+                photo_url="https://i1.wp.com/mohirdev.uz/wp-content/uploads/Telegram-bot.png",
+                thumb_url="https://i1.wp.com/mohirdev.uz/wp-content/uploads/Telegram-bot.png",
+                caption="<b>Mukammal Telegram bot</b> kursi.",
+                reply_markup=aiogram_keys,
+            ),
+            types.InlineQueryResultPhoto(
+                id='ph002',
+                photo_url="https://i1.wp.com/mohirdev.uz/wp-content/uploads/Anvar-aka-python.png",
+                thumb_url="https://i1.wp.com/mohirdev.uz/wp-content/uploads/Anvar-aka-python.png",
+                caption="<b>Python Dasturlash Asoslari</b> kursi.",
+                reply_markup=python_keys,
+            ),
+            types.InlineQueryResultVideo(
+                id='vid001',
+                video_url="https://streamable.com/ryeff4",
+                caption="Million dolarlik g'oya",
+                description="Go'yalarning asl bahosi",
+                title="Million 💲 g'oya ",
+                thumb_url="https://i.imgur.com/bY2XasE.png",
+                mime_type="video/mp4",
+
+            )
+        ]
+    )
 
 
 @dp.inline_handler()
