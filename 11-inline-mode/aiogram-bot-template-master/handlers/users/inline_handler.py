@@ -3,7 +3,7 @@ from loader import dp
 from keyboards.inline.courses import aiogram_keys, python_keys
 
 
-@dp.inline_handler(text='kurs')
+@dp.inline_handler(text='image')
 async def photo_query(query: types.InlineQuery):
     await query.answer(
         results=[
