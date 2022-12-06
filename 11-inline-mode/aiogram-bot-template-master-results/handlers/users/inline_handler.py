@@ -1,6 +1,12 @@
 from aiogram import types
 from loader import dp
 from keyboards.inline.courses import aiogram_keys, python_keys
+from data.courses_python import inline_results_python
+
+
+@dp.inline_handler(text='python')
+async def empty_query(query: types.InlineQuery):
+    await query.answer(inline_results_python)
 
 
 @dp.inline_handler(text='image')
