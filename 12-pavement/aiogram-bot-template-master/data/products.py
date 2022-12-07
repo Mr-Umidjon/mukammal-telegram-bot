@@ -10,11 +10,11 @@ ds_praktikum = Product(
     prices=[
         LabeledPrice(
             label='Praktikum',
-            amount=15000,  # 15.00$
+            amount=150000000,  # 15.00$
         ),
         LabeledPrice(
             label='Chegirma',
-            amount=-1000,
+            amount=-10000000,
         )
     ],
     start_parameter='create_invoice_ds_praktikum',
@@ -33,11 +33,11 @@ python_book = Product(
     prices=[
         LabeledPrice(
             label="Kitob",
-            amount=5000,
+            amount=5000000,
         ),
         LabeledPrice(
             label='Yetkazib berish (7 kun)',
-            amount=100,
+            amount=100000,
         ),
     ],
     start_parameter="create_invoice_python_book",

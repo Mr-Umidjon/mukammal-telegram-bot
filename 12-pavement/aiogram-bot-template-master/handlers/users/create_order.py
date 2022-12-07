@@ -39,19 +39,30 @@ async def show_invoices(message: Message):
                                caption=caption, reply_markup=build_keyboards('praktikum'))
 
 
+@dp.message_handler(Command('mahsulotlar'))
+async def products_invoice(message: Message):
+    await bot.send_invoice(chat_id=message.from_user.id,
+                           **python_book.generate_invoice(),
+                           payload='123456'
+                           )
+    await bot.send_invoice(chat_id=message.from_user.id,
+                           **python_book.generate_invoice(),
+                           payload='123457')
+
+
 @dp.callback_query_handler(text='product:book')
 async def book_invoice(call: CallbackQuery):
     await bot.send_invoice(chat_id=call.from_user.id,
                            **python_book.generate_invoice(),
-                           payload='123456')
+                           payload="payload:kitob")
     await call.answer()
 
 
-@dp.callback_query_handler(text='product:')
+@dp.callback_query_handler(text='product:praktikum')
 async def praktikum_invoice(call: CallbackQuery):
     await bot.send_invoice(chat_id=call.from_user.id,
                            **ds_praktikum.generate_invoice(),
-                           payload='123457')
+                           payload="payload:praktikum")
     await call.answer()
 
 
