@@ -3,7 +3,7 @@ from typing import List
 
 from aiogram.types import LabeledPrice
 
-from ...data import config
+from data import config
 
 
 @dataclass
@@ -30,3 +30,6 @@ class Product:
     is_flexible: bool = False
 
     provider_token: str = config.PROVIDER_TOKEN
+
+    def generate_invoice(self):
+        return self.__dict__
