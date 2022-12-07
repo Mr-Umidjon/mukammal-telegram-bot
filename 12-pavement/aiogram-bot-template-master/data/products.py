@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.types import LabeledPrice
 
-from ..utils.misc.product import Product
+from utils.misc.product import Product
 
 ds_praktikum = Product(
     title="Data Science va Sun'iy intellekt",

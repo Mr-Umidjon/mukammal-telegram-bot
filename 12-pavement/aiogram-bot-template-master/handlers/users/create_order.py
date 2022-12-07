@@ -1,11 +1,11 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
 from aiogram.types import CallbackQuery, Message
-from ...data.config import ADMINS
+from data.config import ADMINS
 
-from ...loader import dp, bot
-from ...data.products import python_book, ds_praktikum, FAST_SHIPPING, REGULAR_SHIPPING, PICKUP_SHIPPING
-from ...keyboards.inline.product_keys import build_keyboards
+from loader import dp, bot
+from data.products import python_book, ds_praktikum, FAST_SHIPPING, REGULAR_SHIPPING, PICKUP_SHIPPING
+from keyboards.inline.product_keys import build_keyboards
 
 
 @dp.message_handler(Command("kitob"))
@@ -47,7 +47,7 @@ async def book_invoice(call: CallbackQuery):
     await call.answer()
 
 
-@dp.callback_query_handler(text='product:praktikum')
+@dp.callback_query_handler(text='product:')
 async def praktikum_invoice(call: CallbackQuery):
     await bot.send_invoice(chat_id=call.from_user.id,
                            **ds_praktikum.generate_invoice(),
