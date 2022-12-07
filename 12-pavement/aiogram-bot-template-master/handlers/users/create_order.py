@@ -42,7 +42,7 @@ async def show_invoices(message: Message):
 @dp.message_handler(Command('mahsulotlar'))
 async def products_invoice(message: Message):
     await bot.send_invoice(chat_id=message.from_user.id,
-                           **python_book.generate_invoice(),
+                           **ds_praktikum.generate_invoice(),
                            payload='123456'
                            )
     await bot.send_invoice(chat_id=message.from_user.id,
@@ -88,3 +88,7 @@ async def process_pre_checkout_query(pre_checkout_query: types.PreCheckoutQuery)
                                         ok=True)
     await bot.send_message(chat_id=pre_checkout_query.from_user.id,
                            text='Xaridingiz uchun rahmat')
+    await bot.send_message(chat_id=ADMINS[0],
+                           text=f'Quyidagi mahsulot sotildi: {pre_checkout_query.invoice_payload}\n'
+                                f'ID: {pre_checkout_query.id}\n'
+                                f'Xaridor: {pre_checkout_query.order_info.name}, tel: {pre_checkout_query.order_info.phone_number}')
