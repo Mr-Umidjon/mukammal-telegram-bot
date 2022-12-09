@@ -38,3 +38,15 @@ class DataBase:
                 elif execute:
                     result = await connection.execute(command, *args)
             return result
+
+    async def create_table_users(self):
+        sql = """
+        CREATE TABLE IF NOT EXISTS Users (
+        id SERIAL PRIMARY KEY,
+        full_name VARCHAR(255) NOT NULL,
+        username VARCHAR(255) NULL,
+        telegram_id BIGINT NOT NULL UNIQUE
+        );"""
+        await self.execute(sql, execute=True)
+
+
