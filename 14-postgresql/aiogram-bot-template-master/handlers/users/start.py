@@ -19,6 +19,6 @@ async def bot_start(message: types.Message):
     await message.answer(f"Salom, {message.from_user.full_name}!")
 
     count = await db.count_users()
-    msg = f"{message.from_user.full_name} bazaga qo'shildi.\n" \
+    msg = f"{user[1]} bazaga qo'shildi.\n" \
           f"Bazada {count} ta foydalanuvchi bor"
     await bot.send_message(chat_id=ADMINS[0], text=msg)

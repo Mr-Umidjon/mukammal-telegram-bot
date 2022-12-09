@@ -17,14 +17,14 @@ class DataBase:
             user=config.DB_USER,
             password=config.DB_PASS,
             host=config.DB_HOST,
-            database=config.DB_NAME,
+            database=config.DB_NAME
         )
 
     async def execute(self, command, *args,
                       fetch: bool = False,
                       fetchval: bool = False,
                       fetchrow: bool = False,
-                      execute: bool = False,
+                      execute: bool = False
                       ):
         async with self.pool.acquire() as connection:
             connection: Connection
@@ -44,20 +44,22 @@ class DataBase:
         CREATE TABLE IF NOT EXISTS Users (
         id SERIAL PRIMARY KEY,
         full_name VARCHAR(255) NOT NULL,
-        username VARCHAR(255) NULL,
-        telegram_id BIGINT NOT NULL UNIQUE
-        );"""
+        username varchar(255) NULL,
+        telegram_id BIGINT NOT NULL UNIQUE 
+        );
+        """
         await self.execute(sql, execute=True)
 
     @staticmethod
     def format_args(sql, parameters: dict):
         sql += " AND ".join([
-            f"{item} = {num}" for num, item in enumerate(parameters.keys(), start=1)
+            f"{item} = ${num}" for num, item in enumerate(parameters.keys(),
+                                                          start=1)
         ])
         return sql, tuple(parameters.values())
 
     async def add_user(self, full_name, username, telegram_id):
-        sql = "INSERT INTO Users (full_name, username, telegram_id) VALUES ($1, $2, $3) returning *"
+        sql = "INSERT INTO users (full_name, username, telegram_id) VALUES($1, $2, $3) returning *"
         return await self.execute(sql, full_name, username, telegram_id, fetchrow=True)
 
     async def select_all_users(self):
@@ -81,4 +83,4 @@ class DataBase:
         await self.execute("DELETE FROM Users WHERE TRUE", execute=True)
 
     async def drop_users(self):
-        await self.execute('DROP TABLE Users', execute=True)
+        await self.execute("DROP TABLE Users", execute=True)
