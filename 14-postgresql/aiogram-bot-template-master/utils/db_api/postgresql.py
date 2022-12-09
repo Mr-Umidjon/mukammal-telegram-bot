@@ -49,4 +49,9 @@ class DataBase:
         );"""
         await self.execute(sql, execute=True)
 
-
+    @staticmethod
+    def format_args(sql, parameters: dict):
+        sql += " AND ".join([
+            f"{item} = {num}" for num, item in enumerate(parameters.keys(), start=1)
+        ])
+        return sql, tuple(parameters.values())
