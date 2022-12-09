@@ -72,3 +72,13 @@ class DataBase:
     async def count_users(self):
         sql = "SELECT COUNT(*) FROM Users"
         return await self.execute(sql, fetchval=True)
+
+    async def update_user_username(self, username, telegram_id):
+        sql = "UPDATE Users SET username=$1 WHERE telegram_id=$2"
+        return await self.execute(sql, username, telegram_id, execute=True)
+
+    async def delete_users(self):
+        await self.execute("DELETE FROM Users WHERE TRUE", execute=True)
+
+    async def drop_users(self):
+        await self.execute('DROP TABLE Users', execute=True)
