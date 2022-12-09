@@ -2,8 +2,8 @@ import time
 
 from aiogram import types
 
-from ...data.config import ADMINS
-from ...loader import dp, bot, db
+from data.config import ADMINS
+from loader import dp, bot, db
 
 
 @dp.message_handler(text='/allusers', user_id=ADMINS)
