@@ -1,4 +1,4 @@
-from utils.db_api.sqlite import DataBase
+from sqlite import DataBase
 
 
 def test():
