@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.builtin import Command
 
-from ...loader import dp, db
+from loader import dp, db
 
 
 @dp.message_handler(Command('email'))
