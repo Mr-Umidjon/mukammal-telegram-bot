@@ -85,3 +85,22 @@ class Database:
 
     async def drop_users(self):
         await self.execute("DROP TABLE Users", execute=True)
+
+    async def create_table_products(self):
+        sql = """
+        CREATE TABLE IF NOT EXISTS Products (
+        id SERIAL PRIMARY KEY,
+        
+        category_code VARCHAR(20) NOT NULL,
+        category_name VARCHAR(50) NOT NULL,
+        
+        subcategory_code VARCHAR(20) NOT NULL,
+        subcategory_name VARCHAR(50) NOT NULL,
+        
+        productname VARCHAR(50) NOT NULL,
+        photo VARCHAR(255) NULL,
+        price INT NOT NULL,
+        description VARCHAR(3000) NULL,
+        );
+        """
+        await self.execute(sql, execute=True)
