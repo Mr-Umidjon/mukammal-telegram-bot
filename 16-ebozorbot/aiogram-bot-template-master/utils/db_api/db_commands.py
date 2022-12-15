@@ -104,3 +104,9 @@ class Database:
         );
         """
         await self.execute(sql, execute=True)
+
+    async def add_product(self, category_code, category_name, subcategory_code, subcategory_name):
+        sql = "INSERT INTO Products (category_code, category_name, subcategory_code, subcategory_name);"
+        await self.execute(sql, execute=True)
+
+    async
