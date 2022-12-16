@@ -28,3 +28,10 @@ async def list_categories(message: Union[CallbackQuery, Message], **kwargs):
 async def list_subcategories(callback: CallbackQuery, category, **kwargs):
     markup = await subcategories_keyboard(category)
     await callback.message.edit_reply_markup(markup)
+
+
+async def list_items(callback: CallbackQuery, category, subcategory, **kwargs):
+    markup = await items_keyboard(category=category, subcategory=subcategory)
+    await callback.message.edit_text(text='Mahsulot tanlang', reply_markup=markup)
+
+
