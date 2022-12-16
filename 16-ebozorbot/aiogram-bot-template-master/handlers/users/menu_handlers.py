@@ -60,3 +60,18 @@ async def navigate(call: CallbackQuery, callback_data: dict):
 
     item_id = int(callback_data.get('item_id'))
 
+    levels = {
+        "0": list_categories,
+        "1": list_subcategories,
+        "2": list_items,
+        "3": show_item,
+    }
+
+    current_level_function = levels[current_level]
+
+    await current_level_function(
+        call,
+        category=category,
+        subcategory=subcategory,
+        item_id=item_id,
+    )
