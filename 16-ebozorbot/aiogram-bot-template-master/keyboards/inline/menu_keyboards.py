@@ -31,3 +31,30 @@ async def categories_keyboard():
             InlineKeyboardButton(text=button_text, callback_data=callback_data)
         )
     return markup
+
+
+async def subcategories_keyboard(category):
+    CURRENT_LEVEl = 1
+    markup = InlineKeyboardMarkup(row_width=1)
+
+    subcategories = db.get_subcategories(category)
+
+    for subcategory in subcategories:
+        number_of_items = await db.count_products(category_code=category, subcategory_code=subcategory)
+
+        button_text = f"{subcategory['subcategory_name']} ({number_of_items} dona)"
+
+        callback_data = make_callback_data(level=CURRENT_LEVEl + 1,
+                                           category=category, subcategory=subcategory['subcategory_code'])
+
+        markup.insert(
+            InlineKeyboardButton(text=button_text, callback_data=callback_data)
+        )
+
+    markup.row(
+        InlineKeyboardButton(
+            text='Ortga',
+            callback_data=make_callback_data(level=CURRENT_LEVEl - 1)
+        )
+    )
+    return markup
