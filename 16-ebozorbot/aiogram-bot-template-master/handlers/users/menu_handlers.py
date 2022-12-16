@@ -48,3 +48,5 @@ async def show_item(callback: CallbackQuery, category, subcategory, item_id):
     text += f"Narxi: {item['price']}$\n {item['description']}"
 
     await callback.message.edit_text(text=text, reply_markup=markup)
+
+
