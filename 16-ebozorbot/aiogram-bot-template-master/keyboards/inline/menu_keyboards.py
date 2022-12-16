@@ -91,3 +91,5 @@ async def items_keyboard(category, subcategory):
                                              category=category)
         )
     )
+
+    return markup
