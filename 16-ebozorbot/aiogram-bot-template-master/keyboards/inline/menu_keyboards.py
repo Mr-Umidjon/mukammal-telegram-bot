@@ -95,7 +95,7 @@ async def items_keyboard(category, subcategory):
     return markup
 
 
-async def item_keyboard(category, subcategory, item_id):
+def item_keyboard(category, subcategory, item_id):
     CURRENT_LEVEL = 3
 
     markup = InlineKeyboardMarkup(row_width=1)
