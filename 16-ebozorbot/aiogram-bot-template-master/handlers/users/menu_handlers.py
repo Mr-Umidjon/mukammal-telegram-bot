@@ -50,3 +50,13 @@ async def show_item(callback: CallbackQuery, category, subcategory, item_id):
     await callback.message.edit_text(text=text, reply_markup=markup)
 
 
+@dp.callback_query_handler(menu_cd.filter())
+async def navigate(call: CallbackQuery, callback_data: dict):
+    current_level = callback_data.get('level')
+
+    category = callback_data.get('category')
+
+    subcategory = callback_data.get('subcategory')
+
+    item_id = int(callback_data.get('item_id'))
+
