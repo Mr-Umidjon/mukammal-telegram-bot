@@ -58,3 +58,36 @@ async def subcategories_keyboard(category):
         )
     )
     return markup
+
+
+async def items_keyboard(category, subcategory):
+    CURRENT_LEVEL = 2
+
+    markup = InlineKeyboardMarkup(row_width=1)
+
+    items = await db.get_products(category_code=category, subcategory_code=subcategory)
+
+    for item in items:
+        button_text = f"{item['productname']} - ${item['price']}"
+
+        callback_data = make_callback_data(
+            level=CURRENT_LEVEL + 1,
+            category=category,
+            subcategory=subcategory,
+            item_id=item['id'],
+        )
+
+        markup.insert(
+            InlineKeyboardButton(
+                text=button_text,
+                callback_data=callback_data,
+            )
+        )
+
+    markup.row(
+        InlineKeyboardButton(
+            text='Ortga',
+            callback_data=make_callback_data(level=CURRENT_LEVEL - 1,
+                                             category=category)
+        )
+    )
