@@ -93,3 +93,27 @@ async def items_keyboard(category, subcategory):
     )
 
     return markup
+
+
+def item_keyboard(category, subcategory, item_id):
+    CURRENT_LEVEL = 3
+
+    markup = InlineKeyboardMarkup(row_width=1)
+
+    markup.row(
+        InlineKeyboardButton(
+            text="Xarid qilish",
+            callback_data=buy_item.new(item_id=item_id)
+        )
+    )
+
+    markup.row(
+        InlineKeyboardButton(
+            text='ortga',
+            callback_data=make_callback_data(level=CURRENT_LEVEL - 1,
+                                             category=category,
+                                             subcategory=subcategory)
+        )
+    )
+
+    return markup
