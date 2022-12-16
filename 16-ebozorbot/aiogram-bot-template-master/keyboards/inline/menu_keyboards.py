@@ -21,5 +21,13 @@ async def categories_keyboard():
     categories = db.get_categories()
 
     for category in categories:
-
         number_of_items = await db.count_products(category['category_code'])
+
+        button_text = f"{category['category_name']} ({number_of_items} dona)"
+
+        callback_data = make_callback_data(level=CURRENT_LEVEL + 1, category=category['category_code'])
+
+        markup.insert(
+            InlineKeyboardButton(text=button_text, callback_data=callback_data)
+        )
+    return markup
