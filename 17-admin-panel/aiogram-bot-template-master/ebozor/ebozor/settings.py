@@ -73,8 +73,12 @@ WSGI_APPLICATION = 'ebozor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "ebozorDB",
+        'USER': 'postgres',
+        'PASSWORD': 'hope3538',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -101,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC+5'
 
 USE_I18N = True
 
