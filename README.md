@@ -19,4 +19,4 @@ Kursning pullik qismida qamrab olingan mavzular:<br>
 ✅ Elektron Bozor yaratish<br>
 ✅ Bot uchun Web Admin panel<br>
 
-Qisqa qilib aytganda, mukammal bot yaratish uchun barcha mavzular qamrab olingan.<br>
+Qisqa qilib aytganda, mukammal bot yaratish uchun barcha mavzular qamrab olingan.
